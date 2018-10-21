@@ -1,0 +1,60 @@
+sudo apt-get install screen
+screen
+
+tl-a Ctl-c, create a new window
+
+Ctl-a Ctl-a, switch between windows
+
+Ctl-a n, toggle to next window
+
+Ctl-a p, toggle to previous window
+
+Ctl-a 5, toggle to 5th window
+
+Ctl-a ", get a menu listing all of the window
+
+Ctl-a A, tool for adding a name to your window, helpful for the menu view
+
+Ctl-a k, Kills the window
+
+Ctl-a d, Detach from the session
+
+screen -r re-attache
+
+killall screen // to kill all screens
+
+
+sudo nano .bashrc // this is for every terminal start
+
+nano /etc/init.d/startMyApp.sh
+screen -dmS screen1
+screen -r screen1
+python ~/hello.py
+screen -d
+
+sudo update-rc.d startMyApp.sh defaults
+onesc@osc-dev-debian:~$ sudo update-rc.d startMyApp.sh defaults
+insserv: warning: script 'startMyApp.sh' missing LSB tags and overrides
+
+If look at the /etc/init.d/skeleton script, in the beginning of it there are two marks : ### BEGIN INIT INFO and ### END INIT INFO.
+
+All the data inside those marks is the configuration for runtime dependences and you can look them up in the Debian Wiki.
+
+Your script is missing these tags and configuration so insserv just uses some defaults.
+
+This is just a warning and is not something to worry about, but you can fix it very easily and then you can be Linux Standards Base-compliant (That's what LSB means).
+
+The easiest way to fix the warning, is to copy the LSB tags from the skeleton script to the beginning of your mathkernel script and just change skeleton to mathkernel.
+
+chmod +x /etc/init.d/startMyApp.sh
+
+ln -s /etc/init.d/startMyApp.sh /etc/rc.d/
+
+
+
+-----------------------------in raspberryPi -------------------------------
+
+sudo nano /etc/profile
+	// at last
+	sudo python /home/pi/test.py
+    sudo reboot
